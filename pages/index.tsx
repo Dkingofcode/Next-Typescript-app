@@ -19,6 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {characters.map((character) => {
+    
          return (
          <div key={character.id}>
           <Link href={`/characters/${character.id}`}>
@@ -36,11 +37,11 @@ const inter = Inter({ subsets: ['latin'] })
            height="200"
          /> 
          </div>
-      )}
-      
-       
-  
-
+             );
+           })}      
+         </div> 
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const res  = await fetch("https://rickandmortyapi.com/api/character");
@@ -52,9 +53,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       characters: results,
     }
   }
-}
 
-    
-}
+}; 
 
 export default Home;
